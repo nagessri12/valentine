@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine's Day</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background: linear-gradient(45deg, #ff9a9e, #fecfef, #ff9a9e);
+      perspective: 1000px;
+    }
+    #popup {
+      border: 2px solid pink;
+      padding: 20px;
+      display: inline-block;
+      background-color: #ffe6f2;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #yes {
+      background-color: #ff4da6;
+      color: white;
+    }
+    #no {
+      background-color: #999;
+      color: white;
+      position: relative;
+    }
+    .butterflies {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .butterfly {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      animation: fly 15s infinite linear;
+    }
+    .butterfly::before, .butterfly::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 15px;
+      background: #ff00ff;
+      border-radius: 50% 50% 0 0;
+      box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+    }
+    .butterfly::before {
+      left: 0;
+      transform: rotate(-30deg);
+    }
+    .butterfly::after {
+      right: 0;
+      transform: rotate(30deg);
+    }
+    @keyframes fly {
+      0% { transform: translate(0, 0) rotateY(0deg) rotateX(0deg); }
+      25% { transform: translate(100vw, 20vh) rotateY(90deg) rotateX(10deg); }
+      50% { transform: translate(50vw, 50vh) rotateY(180deg) rotateX(0deg); }
+      75% { transform: translate(0vw, 80vh) rotateY(270deg) rotateX(-10deg); }
+      100% { transform: translate(100vw, 100vh) rotateY(360deg) rotateX(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="popup">
+    <h2> Nee enna love pandriya ? ❤️</h2>
+    <a href="ok.html"><button id="yes">Yes</button></a>
+    <button id="no">No</button>
+  </div>
+
+  <div class="butterflies">
+    <div class="butterfly" style="animation-delay: 0s;"></div>
+    <div class="butterfly" style="animation-delay: 2s;"></div>
+    <div class="butterfly" style="animation-delay: 4s;"></div>
+    <div class="butterfly" style="animation-delay: 6s;"></div>
+    <div class="butterfly" style="animation-delay: 8s;"></div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.floor(Math.random() * 200) - 100;
+      const y = Math.floor(Math.random() * 200) - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+  </script>
+</body>
+</html>
